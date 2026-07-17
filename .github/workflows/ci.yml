@@ -1,0 +1,17 @@
+name: CI
+
+# Triggers that start the workflow
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: check-artifact
+        run: scripts/check_artifact.cmd
