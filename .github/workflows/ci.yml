@@ -13,9 +13,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: check-artifact
-        run: scripts/check_artifact.py
-  
+      - name: Builds Docker image
+        run: docker build -t shipit3 .
+      - name: Run docker image
+        run: docker run --rm shipit3
 
-  #docker build -t shipit3 .
-  #docker run --rm shipit3  
+  
